@@ -22,6 +22,11 @@
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.2"
   },
+  "jest": {
+    "projects": [
+      "<rootDir>/packages/server"
+    ]
+  },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "plugins": [
