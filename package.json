@@ -4,9 +4,12 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint packages/**/src/**/*.ts",
     "format": "prettier --write *",
-    "format:check": "prettier --check *"
+    "format:check": "prettier --check *",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
@@ -16,6 +19,7 @@
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "prettier": "^2.6.2"
   },
   "eslintConfig": {
@@ -31,6 +35,10 @@
   },
   "prettier": {
     "printWidth": 100
+  },
+  "lint-staged": {
+    "*": "prettier --check",
+    "src/**/*": "yarn eslint"
   },
   "commitlint": {
     "extends": [
