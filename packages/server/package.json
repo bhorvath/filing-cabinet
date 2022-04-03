@@ -10,7 +10,9 @@
   "dependencies": {
     "body-parser": "^1.20.0",
     "expres": "^0.0.5",
-    "tsoa": "^3.14.1"
+    "reflect-metadata": "^0.1.13",
+    "tsoa": "^3.14.1",
+    "tsyringe": "^4.6.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
