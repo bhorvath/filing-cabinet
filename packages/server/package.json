@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tsoa spec-and-routes && tsc -p tsconfig.build.json",
     "start": "node dist/server.js",
-    "start:dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\""
+    "start:dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "body-parser": "^1.20.0",
@@ -17,8 +19,12 @@
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
     "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
     "concurrently": "^7.1.0",
-    "nodemon": "^2.0.15"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0"
   }
 }
