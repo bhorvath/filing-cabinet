@@ -1,4 +1,22 @@
 {
   "name": "@filing-cabinet/server",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsoa spec-and-routes && tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "start:dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\""
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "expres": "^0.0.5",
+    "tsoa": "^3.14.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
+  }
 }
