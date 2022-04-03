@@ -4,14 +4,30 @@
     "packages/*"
   ],
   "scripts": {
+    "lint": "eslint packages/**/src/**/*.ts",
     "format": "prettier --write *",
     "format:check": "prettier --check *"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4",
     "prettier": "^2.6.2"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ]
   },
   "prettier": {
     "printWidth": 100
