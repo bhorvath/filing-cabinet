@@ -2,16 +2,13 @@
   "name": "@filing-cabinet/server",
   "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "build": "tsoa spec-and-routes && tsc -p tsconfig.build.json",
     "start": "node dist/server.js",
     "start:dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint packages/**/src/**/*.ts",
+    "lint": "eslint src/**/*.ts",
     "format": "prettier --write *",
     "format:check": "prettier --check *",
     "prepare": "husky install"
