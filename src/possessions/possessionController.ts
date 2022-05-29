@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put, Route, SuccessResponse } from "tsoa";
+import { Body, Controller, Delete, Get, Path, Post, Put, Route, SuccessResponse } from "tsoa";
 import { inject, singleton } from "tsyringe";
 import { Dependency } from "../dependency";
 import { ApiCreateResponseBody, ApiResponseBody } from "../types/api";
@@ -51,5 +51,17 @@ export class PossessionController extends Controller {
   public updatePossession(@Body() possession: Possession): void {
     this.setStatus(204);
     this.service.updatePossession(possession);
+  }
+
+  /**
+   * Deletes an existing possession.
+   *
+   * @param id the ID of the possession to delete
+   */
+  @Delete("{id}")
+  @SuccessResponse("204", "No Content")
+  public deletePossession(@Path() id: string): void {
+    this.setStatus(204);
+    this.service.deletePossession(id);
   }
 }

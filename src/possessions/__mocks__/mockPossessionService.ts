@@ -10,6 +10,7 @@ export class MockPossessionService implements IPossessionService {
   possessions: Map<string, Possession> = new Map();
   public createPossessionRequests: CreatePossessionRequest[] = [];
   public updatePossessionRequests: Possession[] = [];
+  public deletePossessionRequests: string[] = [];
 
   getPossessions(): Possession[] {
     return Array.from(this.possessions.values());
@@ -26,5 +27,10 @@ export class MockPossessionService implements IPossessionService {
   updatePossession(possession: Possession): void {
     this.updatePossessionRequests.push(possession);
     this.possessions.set(possession.id, possession);
+  }
+
+  deletePossession(id: string): void {
+    this.deletePossessionRequests.push(id);
+    this.possessions.delete(id);
   }
 }

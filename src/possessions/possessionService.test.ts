@@ -47,4 +47,13 @@ describe("PossessionService", () => {
       expect(dataStore.updatePossessionRequests).toEqual([updatedPossession]);
     });
   });
+
+  describe("deletePossession()", () => {
+    it("deletes an existing possession", () => {
+      dataStore.possessions = new Map([[mockPossession.id, mockPossession]]);
+      service.deletePossession(mockPossession.id);
+
+      expect(dataStore.deletePossessionRequests).toEqual([mockPossession.id]);
+    });
+  });
 });

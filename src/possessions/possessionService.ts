@@ -31,9 +31,18 @@ export class PossessionService implements IPossessionService {
   /**
    * Updates an existing possession in the data store.
    *
-   * @param possessionthe possession to update
+   * @param possession the possession to update
    */
   updatePossession(possession: Possession): void {
     this.dataStore.updatePossession(possession);
+  }
+
+  /**
+   * Deletes an existing possession from the data store.
+   *
+   * @param id the ID of the possession to delete
+   */
+  deletePossession(id: string): void {
+    this.dataStore.deletePossession(id);
   }
 }

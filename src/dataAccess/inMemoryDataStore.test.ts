@@ -48,4 +48,13 @@ describe("InMemoryDataStore", () => {
       expect(dataStore.getPossessions()).toEqual([updatedPossession]);
     });
   });
+
+  describe("deletePossession()", () => {
+    it("deletes an existing possession", () => {
+      const dataStore = new InMemoryDataStore([mockPossession]);
+      dataStore.deletePossession(mockPossession.id);
+
+      expect(dataStore.getPossessions()).toEqual([]);
+    });
+  });
 });

@@ -48,4 +48,13 @@ describe("PossessionController", () => {
       expect(service.updatePossessionRequests).toEqual([updatedPossession]);
     });
   });
+
+  describe("deletePossession()", () => {
+    it("deletes an existing possession", () => {
+      service.possessions = new Map([[mockPossession.id, mockPossession]]);
+      controller.deletePossession(mockPossession.id);
+
+      expect(service.deletePossessionRequests).toEqual([mockPossession.id]);
+    });
+  });
 });

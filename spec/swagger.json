@@ -189,6 +189,29 @@
 					}
 				}
 			}
+		},
+		"/api/v1/possessions/{id}": {
+			"delete": {
+				"operationId": "DeletePossession",
+				"responses": {
+					"204": {
+						"description": "No Content"
+					}
+				},
+				"description": "Deletes an existing possession.",
+				"security": [],
+				"parameters": [
+					{
+						"description": "the ID of the possession to delete",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
 		}
 	},
 	"servers": [

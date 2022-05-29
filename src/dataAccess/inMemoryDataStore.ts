@@ -39,4 +39,13 @@ export class InMemoryDataStore implements DataStore {
   updatePossession(possession: Possession): void {
     this.possessions.set(possession.id, possession);
   }
+
+  /**
+   * Delete an existing possession in the in-memory map.
+   *
+   * @param id the ID of the possession to delete
+   */
+  deletePossession(id: string): void {
+    this.possessions.delete(id);
+  }
 }

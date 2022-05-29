@@ -11,6 +11,7 @@ export class MockDataStore implements DataStore {
   possessions: Map<string, Possession> = new Map();
   createPossessionRequests: CreatePossessionRequest[] = [];
   updatePossessionRequests: Possession[] = [];
+  deletePossessionRequests: string[] = [];
 
   getPossessions(): Possession[] {
     return Array.from(this.possessions.values());
@@ -27,5 +28,10 @@ export class MockDataStore implements DataStore {
   updatePossession(possession: Possession): void {
     this.updatePossessionRequests.push(possession);
     this.possessions.set(possession.id, possession);
+  }
+
+  deletePossession(id: string): void {
+    this.deletePossessionRequests.push(id);
+    this.possessions.delete(id);
   }
 }
