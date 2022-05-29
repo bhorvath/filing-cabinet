@@ -8,7 +8,7 @@ export class PossessionService implements IPossessionService {
   constructor(@inject(Dependency.DataStore) private dataStore: DataStore) {}
 
   /**
-   * Retrieves all possessions from the data store
+   * Retrieves all possessions from the data store.
    *
    * @returns all possessions
    */
@@ -17,7 +17,7 @@ export class PossessionService implements IPossessionService {
   }
 
   /**
-   * Creates a new possession in the data store
+   * Creates a new possession in the data store.
    *
    * @param possessionRequest the possession to create
    * @returns the ID of the new request
@@ -26,5 +26,14 @@ export class PossessionService implements IPossessionService {
     const id = this.dataStore.createPossession(possessionRequest);
 
     return id;
+  }
+
+  /**
+   * Updates an existing possession in the data store.
+   *
+   * @param possessionthe possession to update
+   */
+  updatePossession(possession: Possession): void {
+    this.dataStore.updatePossession(possession);
   }
 }

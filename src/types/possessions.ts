@@ -12,4 +12,5 @@ export type CreatePossessionRequest = Omit<Possession, "id">;
 export interface IPossessionService {
   getPossessions(): Possession[];
   createPossession(possessionRequest: CreatePossessionRequest): string;
+  updatePossession(possession: Possession): void;
 }

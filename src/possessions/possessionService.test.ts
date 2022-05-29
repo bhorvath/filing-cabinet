@@ -17,7 +17,7 @@ describe("PossessionService", () => {
 
   describe("getPossessions()", () => {
     it("returns all possessions", () => {
-      dataStore.possessions = mockPossessions;
+      dataStore.possessions = new Map([[mockPossession.id, mockPossession]]);
       const result = service.getPossessions();
 
       expect(result).toEqual(mockPossessions);
@@ -34,7 +34,17 @@ describe("PossessionService", () => {
     it("returns the ID of the new possession", () => {
       const result = service.createPossession(mockCreatePossessionRequest);
 
-      expect(result).toEqual(dataStore.possessions[0].id);
+      expect(result).toEqual(Array.from(dataStore.possessions.values())[0].id);
+    });
+  });
+
+  describe("updatePossession()", () => {
+    it("updates an existing possession", () => {
+      dataStore.possessions = new Map([[mockPossession.id, mockPossession]]);
+      const updatedPossession = { ...mockPossession, description: "Updated description" };
+      service.updatePossession(updatedPossession);
+
+      expect(dataStore.updatePossessionRequests).toEqual([updatedPossession]);
     });
   });
 });

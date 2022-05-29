@@ -4,7 +4,6 @@ import {
   mockPossessions,
 } from "../possessions/__mocks__/mockPossessions";
 import { InMemoryDataStore } from "./inMemoryDataStore";
-import { MockDataStore } from "./__mocks__/mockDataStore";
 
 describe("InMemoryDataStore", () => {
   describe("getPossessions()", () => {
@@ -37,6 +36,16 @@ describe("InMemoryDataStore", () => {
       expect(result).toEqual(
         expect.stringMatching(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/)
       );
+    });
+  });
+
+  describe("updatePossession()", () => {
+    it("updates an existing possession", () => {
+      const updatedPossession = { ...mockPossession, description: "Updated description" };
+      const dataStore = new InMemoryDataStore([mockPossession]);
+      dataStore.updatePossession(updatedPossession);
+
+      expect(dataStore.getPossessions()).toEqual([updatedPossession]);
     });
   });
 });

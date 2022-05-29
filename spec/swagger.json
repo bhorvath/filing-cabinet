@@ -134,7 +134,7 @@
 						}
 					}
 				},
-				"description": "Retrieves all possessions",
+				"description": "Retrieves all possessions.",
 				"security": [],
 				"parameters": []
 			},
@@ -152,7 +152,7 @@
 						}
 					}
 				},
-				"description": "Creates a new possession",
+				"description": "Creates a new possession.",
 				"security": [],
 				"parameters": [],
 				"requestBody": {
@@ -162,6 +162,28 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/CreatePossessionRequest"
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"operationId": "UpdatePossession",
+				"responses": {
+					"204": {
+						"description": "No Content"
+					}
+				},
+				"description": "Updates an existing possession.",
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"description": "the possession to update",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Possession"
 							}
 						}
 					}

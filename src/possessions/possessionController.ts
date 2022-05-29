@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Path, Post, Route, SuccessResponse } from "tsoa";
+import { Body, Controller, Get, Post, Put, Route, SuccessResponse } from "tsoa";
 import { inject, singleton } from "tsyringe";
 import { Dependency } from "../dependency";
 import { ApiCreateResponseBody, ApiResponseBody } from "../types/api";
@@ -12,7 +12,7 @@ export class PossessionController extends Controller {
   }
 
   /**
-   * Retrieves all possessions
+   * Retrieves all possessions.
    *
    * @returns all possessions
    */
@@ -24,7 +24,7 @@ export class PossessionController extends Controller {
   }
 
   /**
-   * Creates a new possession
+   * Creates a new possession.
    *
    * @param possessionRequest the possession to create
    * @returns the location of the new request
@@ -39,5 +39,17 @@ export class PossessionController extends Controller {
     const location = `api/v1/possessions/${id}`;
 
     return { data: { location } };
+  }
+
+  /**
+   * Updates an existing possession.
+   *
+   * @param possession the possession to update
+   */
+  @Put()
+  @SuccessResponse("204", "No Content")
+  public updatePossession(@Body() possession: Possession): void {
+    this.setStatus(204);
+    this.service.updatePossession(possession);
   }
 }
